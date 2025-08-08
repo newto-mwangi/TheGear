@@ -99,7 +99,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <div className="max-w-4xl mx-auto p-6">
-        <h1 className="text-2xl font-bold mb-6">Research Proposal Form</h1>
+        <h1 className="text-2xl font-bold mb-6">Research Proposal Development Template</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           {sections.map((section, idx) => (
             <div
@@ -110,7 +110,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => toggleSection(section.title)}
-                className="w-full flex justify-between items-center p-3 bg-blue-600 text-white font-semibold rounded-t hover:bg-blue-700"
+                className="w-full flex justify-between items-center p-3 bg-gray-600 text-white font-semibold rounded-t hover:bg-blue-700"
               >
                 {section.title}
                 <span>{openSections.includes(section.title) ? '▲' : '▼'}</span>
@@ -167,7 +167,7 @@ export default function Home() {
                       disabled={loading}
                       className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
                     >
-                      {loading ? 'Saving...' : 'Submit & Download PDF'}
+                      {loading ? 'Saving...' : 'Download Research Plan'}
                     </button>
                   )}
                 </div>
@@ -176,7 +176,7 @@ export default function Home() {
           ))}
           {success && (
             <p className="text-green-600 font-medium mt-4">
-              ✅ Your proposal has been saved and downloaded as PDF!
+              ✅ Your Research Plan has been downloaded as PDF!
             </p>
           )}
         </form>
