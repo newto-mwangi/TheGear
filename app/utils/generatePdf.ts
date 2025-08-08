@@ -30,14 +30,14 @@ export async function generatePdf(data: Record<string, string>) {
   }
 
   // Title
-  doc.setFont('Helvetica', 'bold')
-  doc.setFontSize(18)
-  doc.text('Research Portal', pageWidth / 2, y, { align: 'center' })
-  y += 8
+  // doc.setFont('Helvetica', 'bold')
+  // doc.setFontSize(18)
+  // doc.text('Research Portal', pageWidth / 2, y, { align: 'center' })
+  // y += 8
 
-  doc.setFontSize(16)
-  doc.text('Research Proposal Plan', pageWidth / 2, y, { align: 'center' })
-  y += 6
+  // doc.setFontSize(16)
+  // doc.text('Research Proposal Plan', pageWidth / 2, y, { align: 'center' })
+  // y += 6
 
   // Date
   doc.setFontSize(10)
