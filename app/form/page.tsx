@@ -21,7 +21,6 @@ const sections = [
     fields: [
       { label: 'Proposed Study Title', name: 'proposed_study_title', placeholder: 'Enter the title of your proposed study', tooltip: 'Provide a concise and descriptive title for your study.' },
       { label: 'Proposed Research Gap', name: 'proposed_research_gap', placeholder: 'Describe the research gap you aim to address', tooltip: 'Identify missing, outdated, or inconsistent findings in existing research that your study will address.' },
-      { label: 'Significance', name: 'significance', placeholder: 'Explain why your study matters', tooltip: 'Describe the importance of your research and its potential contributions to knowledge or practice.' },
       { label: 'Proposed Research Problem', name: 'proposed_research_problem', placeholder: 'State the problem your research will address', tooltip: 'Clearly define the specific problem or challenge your research will tackle.' },
       { label: 'Proposed Research Purpose', name: 'proposed_research_purpose', placeholder: 'State the main purpose of your research', tooltip: 'Explain the overall aim or objective of your study.' },
       { label: 'Research Questions and Hypotheses', name: 'research_questions_and_hypotheses', placeholder: 'List your main research questions or hypotheses', tooltip: 'Provide the specific research questions or hypotheses your study will investigate.' },
@@ -73,7 +72,8 @@ export default function Home() {
 
     const next = sections[index + 1]
     if (next) {
-      setOpenSections(prev => [...prev.filter(s => s !== current.title), next.title])
+      // Close current, open next
+      setOpenSections([next.title])
       sectionRefs.current[index + 1]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
@@ -83,7 +83,7 @@ export default function Home() {
     setLoading(true)
     setSuccess(false)
 
-    const { error } = await supabase.from('research_proposals').insert([formData])
+    const { error } = await supabase.from('proposals').insert([formData])
     setLoading(false)
 
     if (!error) {
@@ -110,7 +110,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => toggleSection(section.title)}
-                className="w-full flex justify-between items-center p-3 bg-gray-600 text-white font-semibold rounded-t hover:bg-blue-700"
+                className="w-full flex justify-between items-center p-3 bg-blue-600 text-white font-semibold rounded-t hover:bg-blue-700"
               >
                 {section.title}
                 <span>{openSections.includes(section.title) ? '▲' : '▼'}</span>
