@@ -110,7 +110,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => toggleSection(section.title)}
-                className="w-full flex justify-between items-center p-3 bg-blue-600 text-white font-semibold rounded-t hover:bg-blue-700"
+                className="w-full flex justify-between items-center p-3 bg-gray-600 text-white font-semibold rounded-t hover:bg-blue-700"
               >
                 {section.title}
                 <span>{openSections.includes(section.title) ? '▲' : '▼'}</span>

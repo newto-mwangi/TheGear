@@ -12,7 +12,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="bg-blue-600 shadow-md">
+    <nav className="bg-gray-600 shadow-md">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
         <div className="text-white font-bold text-lg tracking-wide">Research Portal</div>
         <div className="flex space-x-6">
